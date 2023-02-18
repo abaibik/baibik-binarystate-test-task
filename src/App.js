@@ -26,10 +26,5 @@ export default function App() {
     },
   ]);
 
-  ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  );
-  return <div className="App"></div>;
+  return <RouterProvider router={router} />;
 }

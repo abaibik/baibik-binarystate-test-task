@@ -4,6 +4,9 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Root() {
+  const classNameGenerator = ({ isActive, isPending }) =>
+    isActive ? "active" : isPending ? "pending" : "";
+
   return (
     <>
       <div id="sidebar">
@@ -12,7 +15,9 @@ export default function Root() {
           <Container>
             <Nav className="me-auto">
               <Nav.Link>
-                <Link to={"/home"}>Home</Link>
+                <Link className={classNameGenerator} to={"/home"}>
+                  Home
+                </Link>
               </Nav.Link>
               <Nav.Link>
                 <Link to={"/details"}>Details</Link>
