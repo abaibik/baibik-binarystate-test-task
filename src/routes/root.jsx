@@ -14,13 +14,11 @@ export default function Root() {
         <Navbar bg="light" variant="light">
           <Container>
             <Nav className="me-auto">
-              <Nav.Link>
-                <Link className={classNameGenerator} to={"/home"}>
-                  Home
-                </Link>
+              <Nav.Link as={Link} to={"/home"}>
+                Home
               </Nav.Link>
-              <Nav.Link>
-                <Link to={"/details"}>Details</Link>
+              <Nav.Link as={Link} to={"/details"}>
+                Details
               </Nav.Link>
             </Nav>
           </Container>
