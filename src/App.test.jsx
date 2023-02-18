@@ -14,3 +14,14 @@ test("render details page when click on details link", async () => {
     screen.getByText(/Details will be here. Stay tuned!/i)
   ).toBeInTheDocument();
 });
+
+test("render home page when click on home link", async () => {
+  const user = userEvent.setup();
+  render(<App />);
+
+  const linkToHome = screen.getByRole("link", { name: /home/i });
+
+  await user.click(linkToHome);
+
+  expect(screen.getByText(/Lorem ipsum dolor/i)).toBeInTheDocument();
+});
