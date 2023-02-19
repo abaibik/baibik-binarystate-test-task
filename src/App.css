@@ -94,12 +94,8 @@ body {
 }
 
 #sidebar nav a.active {
-  background: hsl(224, 98%, 58%);
+  background: hsl(224, 66%, 74%);
   color: white;
-}
-
-#sidebar nav a.pending {
-  color: hsl(224, 98%, 58%);
 }
 
 #detail {
@@ -116,4 +112,8 @@ body {
 
 .content {
   margin-top: clamp(1rem, 5vh, 5rem);
+}
+
+.nav-gap {
+  gap: 1rem
 }

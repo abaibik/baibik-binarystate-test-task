@@ -7,13 +7,14 @@ export default function Root() {
   const { pathname } = useLocation();
   const homePath = "/";
   const detailsPath = "/details";
+
   return (
     <>
       <div id="sidebar">
         <h1>Aleksandra Baibik Test Task</h1>
         <Navbar bg="light" variant="light">
           <Container>
-            <Nav className="me-auto">
+            <Nav className="me-auto w-100 nav-gap">
               <Nav.Link active={pathname === homePath} as={Link} to={homePath}>
                 Home
               </Nav.Link>
