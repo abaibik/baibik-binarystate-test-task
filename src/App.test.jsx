@@ -23,6 +23,8 @@ describe("App component", () => {
     expect(
       screen.getByText(/Details will be here. Stay tuned!/i)
     ).toBeInTheDocument();
+
+    expect(linkToDetails).toHaveClass("active");
   });
 
   test("render home page when click on home link", async () => {
@@ -31,11 +33,16 @@ describe("App component", () => {
     await user.click(linkToHome);
 
     expect(screen.getByText(/Lorem ipsum dolor/i)).toBeInTheDocument();
+    expect(linkToHome).toHaveClass("active");
   });
 
   test("render home page when started", () => {
     const textOnHome = screen.getByText(/Lorem ipsum dolor/i);
 
     expect(textOnHome).toBeInTheDocument();
+
+    const linkToHome = screen.getByRole("link", { name: /home/i });
+
+    expect(linkToHome).toHaveClass("active");
   });
 });

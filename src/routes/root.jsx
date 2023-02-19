@@ -1,12 +1,12 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 export default function Root() {
-  const classNameGenerator = ({ isActive, isPending }) =>
-    isActive ? "active" : isPending ? "pending" : "";
-
+  const { pathname } = useLocation();
+  const homePath = "/";
+  const detailsPath = "/details";
   return (
     <>
       <div id="sidebar">
@@ -14,10 +14,14 @@ export default function Root() {
         <Navbar bg="light" variant="light">
           <Container>
             <Nav className="me-auto">
-              <Nav.Link as={Link} to={"/"}>
+              <Nav.Link active={pathname === homePath} as={Link} to={homePath}>
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to={"/details"}>
+              <Nav.Link
+                active={pathname === detailsPath}
+                as={Link}
+                to={detailsPath}
+              >
                 Details
               </Nav.Link>
             </Nav>
