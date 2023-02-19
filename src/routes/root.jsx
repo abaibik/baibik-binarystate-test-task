@@ -14,7 +14,7 @@ export default function Root() {
         <Navbar bg="light" variant="light">
           <Container>
             <Nav className="me-auto">
-              <Nav.Link as={Link} to={"/home"}>
+              <Nav.Link as={Link} to={"/"}>
                 Home
               </Nav.Link>
               <Nav.Link as={Link} to={"/details"}>
