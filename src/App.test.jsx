@@ -1,6 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
+import { MemoryRouter } from "react-router-dom";
+import { createBrowserHistory, createMemoryHistory } from "history";
+import { Router } from "react-router-dom";
+import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import { routesConfig } from "./routes/routesConfig";
 
 describe("App component", () => {
   let unmount;
@@ -45,4 +50,18 @@ describe("App component", () => {
 
     expect(linkToHome).toHaveClass("active");
   });
+});
+
+test("render error page when path is not valid", async () => {
+  const router = createMemoryRouter(routesConfig, {
+    initialEntries: ["/some/bad/route"],
+  });
+
+  render(<RouterProvider router={router} />);
+
+  const errorPageText = screen.getByText(
+    /Sorry, an unexpected error has occurred/i
+  );
+
+  expect(errorPageText).toBeInTheDocument();
 });
